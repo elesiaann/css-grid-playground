@@ -12,7 +12,7 @@ const errorDisplay = document.getElementById('error-display');
 const templates = {
     basic: {
         container: `display: grid;\ngrid-template-columns: repeat(3, 1fr);\ngap: 1rem;\nheight: 100%;`,
-        items: `padding: 2rem;`,
+        items: `background: rgba(187, 134, 252, 0.2);\nborder: 2px solid #bb86fc;\nborder-radius: 8px;\npadding: 2rem;`,
         count: 6
     },
     'holy-grail': {
