@@ -1,12 +1,13 @@
 :root {
-    --bg: #121212;
-    --surface: #1e1e1e;
-    --surface-light: #2d2d2d;
-    --primary: #bb86fc;
-    --secondary: #03dac6;
-    --error: #cf6679;
-    --text: #e0e0e0;
-    --text-dim: #a0a0a0;
+    --bg: #f9fafb;
+    --surface: #ffffff;
+    --surface-light: #f3f4f6;
+    --primary: #111827;
+    --secondary: #4b5563;
+    --error: #ef4444;
+    --text: #111827;
+    --text-dim: #6b7280;
+    --border: #e5e7eb;
     --header-height: 70px;
     --sidebar-width: 260px;
 }
@@ -31,7 +32,7 @@ body {
 .app-header {
     height: var(--header-height);
     background-color: var(--surface);
-    border-bottom: 1px solid var(--surface-light);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,7 +67,7 @@ body {
 select {
     background-color: var(--surface-light);
     color: var(--text);
-    border: 1px solid #444;
+    border: 1px solid var(--border);
     padding: 0.4rem 0.8rem;
     border-radius: 4px;
     outline: none;
@@ -85,7 +86,7 @@ select {
 
 .btn-primary {
     background-color: var(--primary);
-    color: #000;
+    color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -96,11 +97,11 @@ select {
 .btn-secondary {
     background-color: var(--surface-light);
     color: var(--text);
-    border: 1px solid #444;
+    border: 1px solid var(--border);
 }
 
 .btn-secondary:hover {
-    background-color: #444;
+    background-color: var(--border);
 }
 
 /* Main Layout */
@@ -114,7 +115,7 @@ select {
 /* Sidebar */
 .cheatsheet-sidebar {
     background-color: var(--surface);
-    border-right: 1px solid var(--surface-light);
+    border-right: 1px solid var(--border);
     padding: 1.5rem;
     overflow-y: auto;
 }
@@ -151,7 +152,7 @@ select {
 
 .copy-small {
     background: transparent;
-    border: 1px solid #444;
+    border: 1px solid var(--border);
     color: var(--text-dim);
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
@@ -172,7 +173,7 @@ select {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    border-right: 1px solid var(--surface-light);
+    border-right: 1px solid var(--border);
 }
 
 .editor-group {
@@ -194,8 +195,8 @@ select {
 textarea {
     flex: 1;
     background-color: var(--bg);
-    color: var(--secondary);
-    border: 1px solid var(--surface-light);
+    color: var(--text);
+    border: 1px solid var(--border);
     border-radius: 6px;
     padding: 1rem;
     font-family: 'Fira Code', 'Courier New', monospace;
@@ -227,7 +228,7 @@ textarea:focus {
     padding: 2rem;
     overflow: auto;
     background-image: 
-        radial-gradient(circle at 1px 1px, #222 1px, transparent 0);
+        radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
     background-size: 20px 20px;
 }
 
@@ -239,22 +240,20 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.grid-item:nth-child(8n+1) { background: linear-gradient(135deg, #6200ee, #bb86fc); }
-.grid-item:nth-child(8n+2) { background: linear-gradient(135deg, #03dac6, #018786); }
-.grid-item:nth-child(8n+3) { background: linear-gradient(135deg, #f44336, #e91e63); }
-.grid-item:nth-child(8n+4) { background: linear-gradient(135deg, #ff9800, #ffc107); }
-.grid-item:nth-child(8n+5) { background: linear-gradient(135deg, #4caf50, #8bc34a); }
-.grid-item:nth-child(8n+6) { background: linear-gradient(135deg, #2196f3, #00bcd4); }
-.grid-item:nth-child(8n+7) { background: linear-gradient(135deg, #9c27b0, #673ab7); }
-.grid-item:nth-child(8n+8) { background: linear-gradient(135deg, #795548, #9e9e9e); }
+.grid-item:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+}
 
 @media (max-width: 1024px) {
     .playground-main {
@@ -270,7 +269,7 @@ textarea:focus {
     }
     .cheatsheet-sidebar {
         border-right: none;
-        border-bottom: 1px solid var(--surface-light);
+        border-bottom: 1px solid var(--border);
     }
     .preview-pane {
         min-height: 400px;
